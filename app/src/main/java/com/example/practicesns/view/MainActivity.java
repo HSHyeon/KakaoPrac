@@ -1,5 +1,6 @@
-package com.example.practicesns;
+package com.example.practicesns.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,8 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.example.practicesns.R;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
 
@@ -24,15 +27,18 @@ public class MainActivity extends AppCompatActivity {
     private TextView nickName;
     private ImageView profileImg;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.frag_profile);
+
 
         logout=findViewById(R.id.logout);
         nickName=findViewById(R.id.nickname);
         profileImg=findViewById(R.id.profile);
-        updateKakaoLoginUi();
+    //    updateKakaoLoginUi();
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
                     @Override
                     public Unit invoke(Throwable throwable) {
-                        updateKakaoLoginUi();
+                       // updateKakaoLoginUi();
                         finish();
                         return null;
                     }
@@ -48,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 }
-
+/*
     private void updateKakaoLoginUi(){
         UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
             @Override
@@ -73,4 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 return null;
             }
         });
-    }}
+    }*/
+
+}

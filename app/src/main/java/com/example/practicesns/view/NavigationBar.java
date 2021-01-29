@@ -1,6 +1,8 @@
 package com.example.practicesns.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -10,13 +12,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.practicesns.R;
-import com.example.practicesns.view.login.BoardFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class NavigationBar extends AppCompatActivity {
+    private static final String TAG="NavigationBar";
+    final static String Nick="";
+    final static String ProImg="";
 
     Fragment profileFragment;
-    Fragment chatFragment;
+    Fragment writeFragment;
     Fragment boardFragment;
 
     @Override
@@ -24,9 +28,21 @@ public class NavigationBar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
 
+        Intent intent=getIntent();
+
+        String Nick=intent.getStringExtra("nick");
+        String ProImg=intent.getStringExtra("proimg");
+
+        Log.i(TAG,"invoke: id="+Nick);
+
         profileFragment=new ProfileFragment();
-        chatFragment=new ChatFragment();
+        writeFragment=new WriteFragment();
         boardFragment=new BoardFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("proimg",ProImg);
+        bundle.putString("nick",Nick); //fragment1로 번들 전달
+        profileFragment.setArguments(bundle);
 
         setDefaultFragment();
 
@@ -35,12 +51,12 @@ public class NavigationBar extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.navigation_friends:
-
+                    case R.id.navigation_board:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, boardFragment).commit();
                         Toast.makeText(NavigationBar.this, "friends", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.navigation_chat:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,chatFragment).commit();
+                    case R.id.navigation_write:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,writeFragment).commit();
                         Toast.makeText(NavigationBar.this, "chatting", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.navigation_profile:

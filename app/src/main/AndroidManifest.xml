@@ -10,9 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PracticeSNS"
-        android:name=".KakaoApplication">
+        android:name=".view.login.KakaoApplication">
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".view.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,8 +32,8 @@
                 android:scheme="kakaoed1b5ce365b6aac2e125fd4f168862fb" /> <!--네이티브 앱 키-->
         </intent-filter>
     </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".NavigationBar" />
+        <activity android:name=".view.MainActivity" />
+        <activity android:name=".view.NavigationBar" />
     </application>
 
 </manifest>

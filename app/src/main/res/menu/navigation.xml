@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_songs"
+        android:id="@+id/navigation_board"
         android:icon="@drawable/next"
-        android:title="Songs"/>
+        android:title="friends"/>
 
     <item
-        android:id="@+id/navigation_albums"
+        android:id="@+id/navigation_write"
         android:icon="@drawable/next"
-        android:title="Albums"/>
+        android:title="Chatting"/>
 
     <item
-        android:id="@+id/navigation_artists"
+        android:id="@+id/navigation_profile"
         android:icon="@drawable/next"
-        android:title="Artists"/>
+        android:title="Profile"/>
 
 </menu>

@@ -1,4 +1,4 @@
-package com.example.practicesns;
+package com.example.practicesns.view.login;
 
 import android.app.Application;
 
