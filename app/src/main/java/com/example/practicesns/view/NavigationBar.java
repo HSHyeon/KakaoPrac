@@ -14,7 +14,9 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.practicesns.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class NavigationBar extends AppCompatActivity {
+import java.util.Date;
+
+public class NavigationBar extends AppCompatActivity implements OnTabItemSelectedListener,OnRequestListener{
     private static final String TAG="NavigationBar";
     final static String Nick="";
     final static String ProImg="";
@@ -72,5 +74,15 @@ public class NavigationBar extends AppCompatActivity {
         FragmentTransaction transaction= getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.container,profileFragment);
         transaction.commit();
+    }
+
+    @Override
+    public void onRequest(String command) {
+        
+    }
+
+    @Override
+    public void onTabSelected(int position) {
+
     }
 }
