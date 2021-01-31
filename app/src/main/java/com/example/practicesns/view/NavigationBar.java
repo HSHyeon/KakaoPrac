@@ -78,7 +78,7 @@ public class NavigationBar extends AppCompatActivity implements OnTabItemSelecte
 
     @Override
     public void onRequest(String command) {
-        
+
     }
 
     @Override
