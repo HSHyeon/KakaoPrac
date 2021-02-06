@@ -1,3 +1,5 @@
 # KakaoPrac
 Board practice
-###MVVM 연습
+
+
+#MVVM 구조로 바꾸는 연습해보기
